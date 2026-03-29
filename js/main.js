@@ -83,7 +83,7 @@ function checkReturningVisitor() {
   if (welcomeBack) {
     welcomeBack.classList.add('visible');
     const nameEl = welcomeBack.querySelector('.wb-name');
-    if (nameEl && data.first_name) nameEl.textContent = data.first_name;
+    if (nameEl && data.first_name) nameEl.textContent = ` ${data.first_name}`;
   }
 }
 
