@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Edmonton's game night starts here. Sign up for free wings and playoff season deals from Wing Snob — 5 Edmonton locations, halal, fresh never frozen.">
+  <meta name="theme-color" content="#C5100F">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Playoff Wings. Game On. — Wing Snob Edmonton">
+  <meta property="og:description" content="Get a FREE 6-piece wings on your next order of $30+. Edmonton's game night HQ.">
+  <meta property="og:image"       content="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/WING_SNOB_RED_LOGO-fb382818-1920w.png">
+  <meta property="og:url"         content="https://wingsnob.ca/playoffs">
+  <meta property="og:type"        content="website">
+  <meta name="twitter:card"       content="summary_large_image">
+
+  <title>Playoff Wings. Game On. — Wing Snob Edmonton</title>
+
+  <!-- Favicon fallback -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23C5100F' rx='4'/><text y='24' x='4' font-size='22'>🍗</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ── STRUCTURED DATA (JSON-LD) — LLM + SEO readable ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FoodEstablishment",
+        "@id": "https://www.wingsnob.ca/#organization",
+        "name": "Wing Snob",
+        "alternateName": "WingSnob",
+        "url": "https://www.wingsnob.ca",
+        "logo": "https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/WING_SNOB_RED_LOGO-fb382818-1920w.png",
+        "description": "Wing Snob serves fresh, never-frozen halal chicken wings in Edmonton, Alberta. Traditional, boneless, tenders, and cauliflower options with 30+ sauces across 11 locations.",
+        "servesCuisine": ["Chicken Wings", "Canadian", "Halal"],
+        "hasMenu": "https://www.wingsnob.ca/menu",
+        "sameAs": [
+          "https://www.instagram.com/wingsnobca",
+          "https://www.facebook.com/wingsnob"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "url": "https://www.wingsnob.ca/contact"
+        }
+      },
+      {
+        "@type": "SpecialAnnouncement",
+        "name": "WingSnob Playoff Mode 2026 — Free Wings Offer",
+        "text": "Sign up during the 2026 NHL Playoff season and get a free 6-piece traditional wings on your next order of $30 or more. Use promo code PLAYOFF6 at any Edmonton Wing Snob location.",
+        "category": "https://www.wikidata.org/wiki/Q56274058",
+        "expires": "2026-06-30",
+        "announcementLocation": {
+          "@type": "FoodEstablishment",
+          "name": "Wing Snob Edmonton",
+          "address": { "@type": "PostalAddress", "addressLocality": "Edmonton", "addressRegion": "AB", "addressCountry": "CA" }
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Free 6-Piece Wings — PLAYOFF6",
+        "description": "Free 6-piece traditional chicken wings on orders of $30 or more. Valid at all Edmonton Wing Snob locations during the 2026 NHL Playoff season.",
+        "couponCode": "PLAYOFF6",
+        "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 30, "unitCode": "CAD" },
+        "validFrom": "2026-04-01",
+        "validThrough": "2026-06-30",
+        "offeredBy": { "@id": "https://www.wingsnob.ca/#organization" }
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Brewery District",
+        "address": { "@type": "PostalAddress", "streetAddress": "11988-104 Avenue Bldg 4", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T5K 2G2", "addressCountry": "CA" },
+        "telephone": "+17807609464",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.5461, "longitude": -113.5097 },
+        "openingHours": ["Mo-Th 11:00-23:00", "Fr-Sa 11:00-24:00", "Su 11:00-23:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Eversquare",
+        "address": { "@type": "PostalAddress", "streetAddress": "4624 Gateway Blvd NW", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T6H 4P1", "addressCountry": "CA" },
+        "telephone": "+15876350792",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.4960, "longitude": -113.5040 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Northgate",
+        "address": { "@type": "PostalAddress", "streetAddress": "9499 137 Ave NW Unit 1000", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T5E 5R8", "addressCountry": "CA" },
+        "telephone": "+17802445722",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.5957, "longitude": -113.5260 },
+        "openingHours": ["Mo-Su 11:00-21:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Meadows",
+        "address": { "@type": "PostalAddress", "streetAddress": "1914 38 Ave NW", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T6T 0B9", "addressCountry": "CA" },
+        "telephone": "+17802443400",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.4550, "longitude": -113.3900 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Manning",
+        "address": { "@type": "PostalAddress", "streetAddress": "15558 37 St NW", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T5Y 0S5", "addressCountry": "CA" },
+        "telephone": "+17805409464",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.5950, "longitude": -113.4540 },
+        "openingHours": ["Mo-Su 11:00-23:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Albany",
+        "address": { "@type": "PostalAddress", "streetAddress": "12772 167 Ave NW", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T6V 1J6", "addressCountry": "CA" },
+        "telephone": "+17802444173",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.6410, "longitude": -113.5060 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Rabbit Hill",
+        "address": { "@type": "PostalAddress", "streetAddress": "5116 Mullen Road NW", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T6R 0S9", "addressCountry": "CA" },
+        "telephone": "+17802495774",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.4530, "longitude": -113.5700 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Hamptons",
+        "address": { "@type": "PostalAddress", "streetAddress": "20020 Lessard Rd NW", "addressLocality": "Edmonton", "addressRegion": "AB", "postalCode": "T6M 0T9", "addressCountry": "CA" },
+        "telephone": "+15874153554",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.5290, "longitude": -113.6580 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Sherwood Park",
+        "address": { "@type": "PostalAddress", "streetAddress": "80-1020 Sherwood Drive", "addressLocality": "Sherwood Park", "addressRegion": "AB", "postalCode": "T8A 4N5", "addressCountry": "CA" },
+        "telephone": "+15872691016",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.5350, "longitude": -113.3140 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Leduc",
+        "address": { "@type": "PostalAddress", "streetAddress": "5411 Discovery Way Unit 108", "addressLocality": "Leduc", "addressRegion": "AB", "postalCode": "T9E 8N4", "addressCountry": "CA" },
+        "telephone": "+17807392602",
+        "geo": { "@type": "GeoCoordinates", "latitude": 53.2730, "longitude": -113.5490 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": "Wing Snob — Calgary Legacy",
+        "address": { "@type": "PostalAddress", "streetAddress": "180 Legacy Main Street SE, Unit 160", "addressLocality": "Calgary", "addressRegion": "AB", "postalCode": "T2X 4R9", "addressCountry": "CA" },
+        "telephone": "+18254016080",
+        "geo": { "@type": "GeoCoordinates", "latitude": 50.8840, "longitude": -113.9820 },
+        "openingHours": ["Mo-Su 11:00-22:00"],
+        "url": "https://www.wingsnob.ca/locations"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Config — fill in js/config.js before going live -->
+  <script src="js/config.js"></script>
+
+  <!-- GA4 — ID is pulled from config.js -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    const _ga4id = window.WINGSNOB_CONFIG && window.WINGSNOB_CONFIG.GA4_ID;
+    if (_ga4id && _ga4id !== 'G-XXXXXXXXXX') {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + _ga4id;
+      document.head.appendChild(s);
+      gtag('config', _ga4id);
+    }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAV
+════════════════════════════════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a class="nav__logo" href="https://www.wingsnob.ca" aria-label="Wing Snob home">
+      <img
+        src="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/WING_SNOB_RED_LOGO-fb382818-1920w.png"
+        alt="Wing Snob"
+      >
+    </a>
+    <a class="btn btn-primary nav__cta" href="#offer" aria-label="Get free wings">
+      Get Free Wings
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════ -->
+<section class="hero" id="top" aria-label="Hero">
+  <div class="hero__inner">
+    <!-- LEFT: Copy -->
+    <div class="hero__copy">
+      <div class="hero__eyebrow" aria-hidden="true">
+        <span class="hero__eyebrow-dot"></span>
+        2026 NHL Playoffs — Limited Time
+      </div>
+      <h1 class="hero__headline">
+        Win Oilers<br>
+        <span>Playoff Tickets.</span>
+      </h1>
+      <p class="hero__sub">
+        Sign up for a chance to win <strong style="color:#fff">1 of 20 pairs</strong> of 2026 Oilers playoff tickets. Plus get free wings instantly on your next order.
+      </p>
+      <div class="hero__ctas">
+        <a class="btn btn-primary btn-lg" href="#offer" aria-label="Enter to win tickets">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          Enter to Win
+        </a>
+        <a class="btn btn-outline btn-lg" href="https://www.skipthedishes.com/wing-snob" target="_blank" rel="noopener" data-order="hero">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Order Now
+        </a>
+      </div>
+      <div class="hero__badges" aria-label="Wing Snob highlights">
+        <span class="hero__badge">20 Pairs to Win</span>
+        <span class="hero__badge">Free Wings Instantly</span>
+        <span class="hero__badge">Halal Certified</span>
+        <span class="hero__badge">11 Alberta Locations</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Food photo -->
+    <div class="hero__img" aria-hidden="true">
+      <img
+        src="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/Wing_Snob_Trad_Cajun-379w.png"
+        alt="Cajun traditional wings from Wing Snob"
+        loading="eager"
+        width="379" height="379"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     VALUE PROPS
+════════════════════════════════════════════════════════ -->
+<section class="props section-pad-sm" aria-label="Key benefits">
+  <div class="container">
+    <div class="props__grid">
+
+      <div class="props__item">
+        <div class="props__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6 2 2 7 2 12s4 10 10 10 10-4.5 10-10S18 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div>
+          <div class="props__label">Fresh, Never Frozen</div>
+          <div class="props__desc">Wings made fresh daily</div>
+        </div>
+      </div>
+
+      <div class="props__item">
+        <div class="props__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="props__label">Ready in 15 Min</div>
+          <div class="props__desc">Order online, pickup fast</div>
+        </div>
+      </div>
+
+      <div class="props__item">
+        <div class="props__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="props__label">11 Alberta Locations</div>
+          <div class="props__desc">Edmonton, Sherwood Park, Leduc, Calgary</div>
+        </div>
+      </div>
+
+      <div class="props__item">
+        <div class="props__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="props__label">Group Packs from $40</div>
+          <div class="props__desc">Pal Packs feed 2–3 people</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     OFFER / EMAIL CAPTURE
+════════════════════════════════════════════════════════ -->
+<section class="offer section-pad" id="offer" aria-label="Free wings offer and signup">
+  <div class="container">
+    <div class="offer__inner">
+
+      <!-- LEFT: Pitch -->
+      <div class="offer__pitch">
+        <span class="offer__tag">Limited Time — 2026 Playoffs</span>
+        <h2 class="offer__headline">Win Tickets.<br><span style="color:var(--red)">Get Free Wings.</span></h2>
+
+        <!-- Prize block -->
+        <div class="offer__prize">
+          <div class="offer__prize-label">Grand Prize</div>
+          <div class="offer__prize-value">1 of 20 Pairs</div>
+          <div class="offer__prize-desc">2026 Oilers Playoff Tickets</div>
+        </div>
+
+        <p class="offer__sub">
+          Every signup is an entry. Draw held before the first home playoff game — winner announced on <strong style="color:#fff">@wingsnobca</strong>. Plus get a free 6-piece wings <em>right now</em>.
+        </p>
+        <ul class="offer__perks" aria-label="Offer details">
+          <li class="offer__perk">
+            <span class="offer__perk-dot" aria-hidden="true"></span>
+            <strong>20 pairs</strong> of Oilers playoff tickets up for grabs
+          </li>
+          <li class="offer__perk">
+            <span class="offer__perk-dot" aria-hidden="true"></span>
+            Instant code <strong>PLAYOFF6</strong> — free wings on orders $30+
+          </li>
+          <li class="offer__perk">
+            <span class="offer__perk-dot" aria-hidden="true"></span>
+            Game-day deals + text alerts all season
+          </li>
+          <li class="offer__perk">
+            <span class="offer__perk-dot" aria-hidden="true"></span>
+            One entry per person. No purchase necessary.
+          </li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: Form / Welcome Back -->
+      <div>
+        <!-- Welcome Back (shown if already signed up) -->
+        <div class="welcome-back" id="welcome-back" role="region" aria-label="Welcome back">
+          <div class="welcome-back__title">Welcome Back<span class="wb-name"></span>!</div>
+          <p class="welcome-back__sub">Your free wings code is still valid.</p>
+          <div class="welcome-back__code" aria-label="Promo code">PLAYOFF6</div>
+          <p class="welcome-back__sub">Use on orders $30+ at any Edmonton Wing Snob.</p>
+          <a class="btn btn-primary btn-full" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="welcome-back">Order Now</a>
+        </div>
+
+        <!-- Signup Form Card -->
+        <div class="form-card" id="signup-form-card">
+          <div class="form-card__title">Enter to Win + Free Wings</div>
+
+          <form id="signup-form" novalidate aria-label="Playoff signup form">
+
+            <div id="form-inner">
+              <div class="form-group">
+                <label class="form-label" for="field-name">First Name <span aria-label="required">*</span></label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="field-name"
+                  name="first_name"
+                  placeholder="Your name"
+                  autocomplete="given-name"
+                  required
+                  aria-required="true"
+                >
+                <div class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="field-email">Email <span aria-label="required">*</span></label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="field-email"
+                  name="email"
+                  placeholder="you@email.com"
+                  autocomplete="email"
+                  inputmode="email"
+                  required
+                  aria-required="true"
+                >
+                <div class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="field-phone">Phone <em style="font-weight:400;text-transform:none;letter-spacing:0;font-style:normal;color:#555;">(optional)</em></label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="field-phone"
+                  name="phone"
+                  placeholder="For game-day text alerts"
+                  autocomplete="tel"
+                  inputmode="tel"
+                >
+                <div class="form-hint">Msg &amp; data rates may apply. Reply STOP to opt out anytime.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="field-location">Preferred Location <span aria-label="required">*</span></label>
+                <select
+                  class="form-select"
+                  id="field-location"
+                  name="preferred_location"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>Detecting your nearest location…</option>
+                  <option value="Edmonton - Brewery District">Edmonton – Brewery District</option>
+                  <option value="Edmonton - Eversquare">Edmonton – Eversquare</option>
+                  <option value="Edmonton - Northgate">Edmonton – Northgate</option>
+                  <option value="Edmonton - Meadows">Edmonton – Meadows</option>
+                  <option value="Edmonton - Manning">Edmonton – Manning</option>
+                  <option value="Edmonton - Albany">Edmonton – Albany</option>
+                  <option value="Edmonton - Rabbit Hill">Edmonton – Rabbit Hill</option>
+                  <option value="Edmonton - Hamptons">Edmonton – Hamptons</option>
+                  <option value="Sherwood Park">Sherwood Park</option>
+                  <option value="Leduc">Leduc</option>
+                  <option value="Calgary - Legacy">Calgary – Legacy</option>
+                </select>
+                <div class="form-error" role="alert" aria-live="polite"></div>
+              </div>
+
+              <!-- Hidden fields -->
+              <input type="hidden" id="field-campaign"     name="campaign">
+              <input type="hidden" id="field-source"       name="source">
+              <input type="hidden" id="field-utm-source"   name="utm_source">
+              <input type="hidden" id="field-utm-medium"   name="utm_medium">
+              <input type="hidden" id="field-utm-campaign" name="utm_campaign">
+              <input type="hidden" id="field-utm-content"  name="utm_content">
+
+              <div id="form-global-error" role="alert" aria-live="assertive" style="display:none;color:#FF6B6B;font-size:0.8rem;margin-bottom:12px;"></div>
+
+              <button type="submit" id="signup-btn" class="btn btn-primary btn-full btn-lg">
+                <span class="btn-text">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                  Enter to Win + Claim Free Wings
+                </span>
+                <span class="btn-loading" aria-hidden="true">
+                  <span class="spinner"></span>
+                </span>
+              </button>
+            </div><!-- /form-inner -->
+
+            <!-- Confirmation state (hidden until submit) -->
+            <div class="form-confirmation" id="form-confirmation" role="region" aria-label="Signup confirmed" aria-live="polite">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#5A9A5A" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div class="confirm-title" style="margin-top:12px">You're Entered<span class="confirm-name"></span>!</div>
+              <p class="confirm-text" style="color:#5A9A5A;font-weight:600;">Your entry for 1 of 20 pairs of Oilers playoff tickets is confirmed.</p>
+              <p class="confirm-text">Draw before the first home playoff game. Winner on @wingsnobca.</p>
+              <p class="confirm-text" style="margin-top:16px;">Your free wings code — use it tonight:</p>
+              <div class="confirm-code" aria-label="Promo code: PLAYOFF6">PLAYOFF6</div>
+              <p class="confirm-text">
+                Free 6-piece wings on any order of <strong>$30+</strong>.<br>
+                Check your inbox for confirmation.
+              </p>
+              <a class="btn btn-primary btn-full" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="confirmation">
+                Order Now
+              </a>
+            </div>
+
+          </form>
+          <p class="form-submit-note">No spam. Game-day deals, free wings, and your shot at playoff tickets.</p>
+          <p class="form-submit-note" style="margin-top:8px;font-size:0.65rem;line-height:1.5;">Contest open to AB residents 18+. One entry per person. 20 pairs of tickets drawn at random before the first home 2026 Oilers playoff game. No purchase necessary. Winners notified by email and announced @wingsnobca. Full rules available at wingsnob.ca.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════════════════════ -->
+<section class="how section-pad" id="how" aria-label="How it works">
+  <div class="container">
+    <h2 class="how__headline">How It Works</h2>
+    <div class="how__steps">
+
+      <div class="how__step">
+        <div class="how__step-num" aria-hidden="true">1</div>
+        <div>
+          <div class="how__step-title">Enter in 30 Seconds</div>
+          <p class="how__step-text">Fill in your name, email, and nearest location. One entry per person. You're instantly in the draw for 1 of 20 pairs of Oilers playoff tickets.</p>
+        </div>
+      </div>
+
+      <div class="how__step">
+        <div class="how__step-num" aria-hidden="true">2</div>
+        <div>
+          <div class="how__step-title">Get Free Wings Now</div>
+          <p class="how__step-text">Code PLAYOFF6 lands in your inbox immediately. Use it on any order of $30+ — free 6-piece wings added to your order.</p>
+        </div>
+      </div>
+
+      <div class="how__step">
+        <div class="how__step-num" aria-hidden="true">3</div>
+        <div>
+          <div class="how__step-title">Win. Watch. Repeat.</div>
+          <p class="how__step-text">Draw before the first home playoff game. 20 winners. Everyone else keeps getting game-day deals all season.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn btn-primary btn-lg" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="how-it-works">Order for Tonight</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOD GALLERY + SOCIAL PROOF
+════════════════════════════════════════════════════════ -->
+<section class="gallery section-pad" id="menu" aria-label="Food gallery and reviews">
+  <div class="container">
+    <span class="section-label">The Menu</span>
+    <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.5rem);text-transform:uppercase;color:var(--white);margin-bottom:32px;">
+      Wings Worth Showing Up For
+    </h2>
+
+    <div class="gallery__grid" role="list" aria-label="Wing Snob menu items">
+      <div class="gallery__item" role="listitem">
+        <img
+          src="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/Wing_Snob_Trad_Cajun-379w.png"
+          alt="Cajun Traditional Wings"
+          loading="lazy" width="379" height="379"
+        >
+      </div>
+      <div class="gallery__item" role="listitem">
+        <img
+          src="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/Wing_Snob_Boneless_Jamaican_Jerk-379w.png"
+          alt="Jamaican Jerk Boneless Wings"
+          loading="lazy" width="379" height="379"
+        >
+      </div>
+      <div class="gallery__item" role="listitem">
+        <img
+          src="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/Wing_Snob_Naked_Tenders-383w.png"
+          alt="Naked Tenders"
+          loading="lazy" width="383" height="383"
+        >
+      </div>
+      <div class="gallery__item" role="listitem">
+        <img
+          src="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/Wing_Snob_Garlic_Parm_Fries-379w.png"
+          alt="Garlic Parm Fries"
+          loading="lazy" width="379" height="379"
+        >
+      </div>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="gallery__proof">
+      <div class="gallery__stars" aria-label="4.4 out of 5 stars">★★★★½</div>
+      <blockquote class="gallery__quote">"Best wings in Edmonton. Period."</blockquote>
+      <cite class="gallery__attribution">— Google Reviews · 4.4 ★ · Edmonton</cite>
+      <div style="margin-top:24px;">
+        <a class="btn btn-outline" href="#offer">Claim Free Wings</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     LOCATIONS
+════════════════════════════════════════════════════════ -->
+<section class="locations section-pad" id="locations" aria-label="Edmonton locations">
+  <div class="container">
+    <span class="section-label">Find a Snob</span>
+    <h2 class="locations__headline">5 Edmonton Locations</h2>
+
+    <div class="locations__grid" id="locations-grid">
+
+      <article class="location-card" data-location-key="Edmonton - Brewery District" data-lat="53.5461" data-lng="-113.5097">
+        <div class="location-card__header">
+          <div class="location-card__name">Brewery District</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">11988-104 Avenue Bldg 4<br>Edmonton, AB T5K 2G2</address>
+        <div class="location-card__phone">(780) 760-9464</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–11pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob" target="_blank" rel="noopener" data-order="location-brewery">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Edmonton - Eversquare" data-lat="53.4960" data-lng="-113.5040">
+        <div class="location-card__header">
+          <div class="location-card__name">Eversquare</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">4624 Gateway Blvd NW<br>Edmonton, AB T6H 4P1</address>
+        <div class="location-card__phone">(587) 635-0792</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-eversquare" target="_blank" rel="noopener" data-order="location-eversquare">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Edmonton - Northgate" data-lat="53.5957" data-lng="-113.5260">
+        <div class="location-card__header">
+          <div class="location-card__name">Northgate</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">9499 137 Ave NW Unit 1000<br>Edmonton, AB T5E 5R8</address>
+        <div class="location-card__phone">(780) 244-5722</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–9pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-137-avenue" target="_blank" rel="noopener" data-order="location-northgate">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Edmonton - Meadows" data-lat="53.4550" data-lng="-113.3900">
+        <div class="location-card__header">
+          <div class="location-card__name">Meadows</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">1914 38 Ave NW<br>Edmonton, AB T6T 0B9</address>
+        <div class="location-card__phone">(780) 244-3400</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-38" target="_blank" rel="noopener" data-order="location-meadows">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Edmonton - Manning" data-lat="53.5950" data-lng="-113.4540">
+        <div class="location-card__header">
+          <div class="location-card__name">Manning</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">15558 37 St NW<br>Edmonton, AB T5Y 0S5</address>
+        <div class="location-card__phone">(780) 540-9464</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–11pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-nw" target="_blank" rel="noopener" data-order="location-manning">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Edmonton - Albany" data-lat="53.6410" data-lng="-113.5060">
+        <div class="location-card__header">
+          <div class="location-card__name">Albany</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">12772 167 Ave NW<br>Edmonton, AB T6V 1J6</address>
+        <div class="location-card__phone">(780) 244-4173</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-167-avenue" target="_blank" rel="noopener" data-order="location-albany">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Edmonton - Rabbit Hill" data-lat="53.4530" data-lng="-113.5700">
+        <div class="location-card__header">
+          <div class="location-card__name">Rabbit Hill</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">5116 Mullen Road NW<br>Edmonton, AB T6R 0S9</address>
+        <div class="location-card__phone">(780) 249-5774</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-5116" target="_blank" rel="noopener" data-order="location-rabbit-hill">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Edmonton - Hamptons" data-lat="53.5290" data-lng="-113.6580">
+        <div class="location-card__header">
+          <div class="location-card__name">Hamptons</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">20020 Lessard Rd NW<br>Edmonton, AB T6M 0T9</address>
+        <div class="location-card__phone">(587) 415-3554</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-lessard-road" target="_blank" rel="noopener" data-order="location-hamptons">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Sherwood Park" data-lat="53.5350" data-lng="-113.3140">
+        <div class="location-card__header">
+          <div class="location-card__name">Sherwood Park</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">80-1020 Sherwood Drive<br>Sherwood Park, AB T8A 4N5</address>
+        <div class="location-card__phone">(587) 269-1016</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-sherwood-drive" target="_blank" rel="noopener" data-order="location-sherwood-park">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Leduc" data-lat="53.2730" data-lng="-113.5490">
+        <div class="location-card__header">
+          <div class="location-card__name">Leduc</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">5411 Discovery Way Unit 108<br>Leduc, AB T9E 8N4</address>
+        <div class="location-card__phone">(780) 739-2602</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-discovery-way" target="_blank" rel="noopener" data-order="location-leduc">Order on Skip</a>
+      </article>
+
+      <article class="location-card" data-location-key="Calgary - Legacy" data-lat="50.8840" data-lng="-113.9820">
+        <div class="location-card__header">
+          <div class="location-card__name">Calgary – Legacy</div>
+          <span class="nearest-badge" hidden>Nearest to you</span>
+        </div>
+        <address class="location-card__address">180 Legacy Main Street SE, Unit 160<br>Calgary, AB T2X 4R9</address>
+        <div class="location-card__phone">(825) 401-6080</div>
+        <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-legacy-main-street" target="_blank" rel="noopener" data-order="location-calgary-legacy">Order on Skip</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════════════════ -->
+<section class="faq section-pad" id="faq" aria-label="Frequently asked questions">
+  <div class="container">
+    <h2 class="faq__headline">Got Questions?</h2>
+
+    <ul class="faq__list" role="list">
+
+      <li class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          Are Wing Snob wings halal?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer" role="region">
+          <p>Yes — all Wing Snob wings are <strong>halal certified</strong>. Every Edmonton location sources halal chicken. No exceptions.</p>
+        </div>
+      </li>
+
+      <li class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          Which locations are open late on game nights?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer" role="region">
+          <p>All five Edmonton locations are open until <strong>11 PM</strong> Sunday through Thursday and until <strong>midnight</strong> Friday and Saturday — perfect for post-game wings or late puck drop orders.</p>
+        </div>
+      </li>
+
+      <li class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          Do you have group or party packs?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer" role="region">
+          <p>Yes! The <strong>Pal Pack</strong> (20 wings, 2 flavors, fries, dips) feeds 2–3 and starts at $40. Packs go up to 50 wings. For events with 500+ guests, Wing Snob caters with 24-hour notice — ask at your location or visit <a href="https://www.wingsnob.ca/catering" style="color:var(--red)">wingsnob.ca/catering</a>.</p>
+        </div>
+      </li>
+
+      <li class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          Can I use the PLAYOFF6 code on delivery?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer" role="region">
+          <p>Yes — use code <strong>PLAYOFF6</strong> when ordering on <a href="https://order.wingsnob.ca" style="color:var(--red)">order.wingsnob.ca</a> or mention it in-store on orders of $30 or more. Skip the Dishes and Uber Eats orders are not eligible for this offer.</p>
+        </div>
+      </li>
+
+      <li class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          How do I order for pickup?
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq__answer" role="region">
+          <p>Go to <a href="https://order.wingsnob.ca" style="color:var(--red)">order.wingsnob.ca</a>, select your location, pick your wings, and your order will be ready in approximately <strong>15 minutes</strong>. No app download needed.</p>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+
+      <a class="footer__logo" href="https://www.wingsnob.ca" aria-label="Wing Snob home">
+        <img
+          src="https://lirp.cdn-website.com/6dc9842f/dms3rep/multi/opt/WING_SNOB_RED_LOGO-fb382818-1920w.png"
+          alt="Wing Snob"
+          loading="lazy"
+        >
+      </a>
+
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="https://www.wingsnob.ca/menu">Menu</a>
+        <a href="https://www.wingsnob.ca/locations">Locations</a>
+        <a href="https://www.wingsnob.ca/catering">Catering</a>
+        <a href="https://www.instagram.com/wingsnobca" target="_blank" rel="noopener">@wingsnobca</a>
+        <a href="https://www.wingsnob.ca/contact">Contact</a>
+      </nav>
+
+      <div class="footer__cta">
+        <a class="btn btn-primary" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="footer">Order Wings Now</a>
+      </div>
+
+      <p class="footer__copy">
+        WingSnob Canada &nbsp;·&nbsp; <a href="https://www.wingsnob.ca" style="color:inherit">wingsnob.ca</a><br>
+        &copy; 2026 Wing Snob Franchising LLC &nbsp;·&nbsp;
+        <a href="https://www.wingsnob.ca" style="color:inherit">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="https://www.wingsnob.ca" style="color:inherit">Terms of Service</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── MOBILE STICKY CTA BAR ─────────────────────────────── -->
+<div class="mobile-sticky" aria-label="Quick order actions" role="complementary">
+  <a class="btn btn-outline" href="#offer">Win Tickets</a>
+  <a class="btn btn-primary" href="#offer">Free Wings</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
