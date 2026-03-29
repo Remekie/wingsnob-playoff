@@ -334,6 +334,7 @@ section { width: 100%; }
 .offer__sub {
   font-size: 1rem;
   color: var(--text-muted);
+  word-break: break-word;
   margin-bottom: 28px;
   line-height: 1.7;
   max-width: 480px;
@@ -976,8 +977,24 @@ section { width: 100%; }
 
 /* ── OFFER / FORM — mobile ──────────────────────────────── */
 @media (max-width: 767px) {
+  .offer__inner {
+    gap: 28px;
+  }
   .offer__headline {
     font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+  .offer__sub {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+  .offer__prize {
+    padding: 20px 16px;
+  }
+  .offer__prize-value {
+    font-size: 1.7rem;
+  }
+  .offer__perks {
+    gap: 8px;
   }
   .form-card {
     padding: 20px 16px;
@@ -990,9 +1007,21 @@ section { width: 100%; }
   .form-group {
     margin-bottom: 12px;
   }
+  .form-input,
+  .form-select {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+  .btn-primary {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
   /* Add extra bottom padding so sticky bar doesn't cover form submit */
   #signup-form-card {
-    padding-bottom: 24px;
+    padding-bottom: 80px;
+  }
+  .welcome-back {
+    padding: 24px 20px;
   }
 }
 
