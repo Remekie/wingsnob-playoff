@@ -9,7 +9,7 @@ window.WINGSNOB_CONFIG = {
   // ── GoHighLevel ───────────────────────────────────────────
   // 1. In GHL: Automations → Triggers → Inbound Webhook → Create
   // 2. Copy the webhook URL and paste it below
-  GHL_WEBHOOK_URL: 'YOUR_GHL_WEBHOOK_URL',
+  GHL_WEBHOOK_URL: 'https://services.leadconnectorhq.com/hooks/G1FQfOOaviS7nU1pnmvw/webhook-trigger/156a4e74-1197-4fa9-9abb-3b58d2b79faa',
 
   // ── Google Analytics 4 ───────────────────────────────────
   // 1. analytics.google.com → Admin → Create Property
