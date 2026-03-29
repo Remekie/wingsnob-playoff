@@ -5,7 +5,9 @@
 
 // ── CONFIG — values come from js/config.js ────────────────
 const _cfg            = window.WINGSNOB_CONFIG || {};
-const GHL_WEBHOOK_URL = _cfg.GHL_WEBHOOK_URL || 'YOUR_GHL_WEBHOOK_URL';
+const GHL_API_KEY     = _cfg.GHL_API_KEY     || '';
+const GHL_LOCATION_ID = _cfg.GHL_LOCATION_ID || '';
+const GHL_FIELDS      = _cfg.GHL_FIELDS      || {};
 const CAMPAIGN        = _cfg.CAMPAIGN        || 'playoff-2026';
 const PROMO_CODE      = _cfg.PROMO_CODE      || 'PLAYOFF6';
 const ORDER_URL       = _cfg.ORDER_URL       || 'https://order.wingsnob.ca';
@@ -119,11 +121,27 @@ function initForm() {
     const payload = buildPayload(form);
 
     try {
-      if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL') {
-        await fetch(GHL_WEBHOOK_URL, {
+      if (GHL_API_KEY && GHL_LOCATION_ID) {
+        await fetch('https://services.leadconnectorhq.com/contacts/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
+          headers: {
+            'Authorization': `Bearer ${GHL_API_KEY}`,
+            'Content-Type': 'application/json',
+            'Version': '2021-07-28',
+          },
+          body: JSON.stringify({
+            locationId: GHL_LOCATION_ID,
+            firstName:  payload.first_name,
+            email:      payload.email,
+            phone:      payload.phone || undefined,
+            tags:       ['playoff-2026', 'contest-entrant', `source-${payload.source}`],
+            customFields: [
+              { id: GHL_FIELDS.preferred_location, value: payload.preferred_location },
+              { id: GHL_FIELDS.campaign_name,      value: payload.campaign },
+              { id: GHL_FIELDS.campaign_source,    value: payload.source },
+              { id: GHL_FIELDS.contest_entry,      value: 'Yes' },
+            ],
+          }),
         });
       }
 
