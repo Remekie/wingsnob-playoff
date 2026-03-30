@@ -5,9 +5,7 @@
 
 // ── CONFIG — values come from js/config.js ────────────────
 const _cfg            = window.WINGSNOB_CONFIG || {};
-const GHL_API_KEY     = _cfg.GHL_API_KEY     || '';
-const GHL_LOCATION_ID = _cfg.GHL_LOCATION_ID || '';
-const GHL_FIELDS      = _cfg.GHL_FIELDS      || {};
+const GHL_WEBHOOK_URL = _cfg.GHL_WEBHOOK_URL || '';
 const CAMPAIGN        = _cfg.CAMPAIGN        || 'playoff-2026';
 const PROMO_CODE      = _cfg.PROMO_CODE      || 'PLAYOFF6';
 const ORDER_URL       = _cfg.ORDER_URL       || 'https://order.wingsnob.ca';
@@ -122,111 +120,13 @@ function initForm() {
     const payload = buildPayload(form);
 
     try {
-      if (GHL_API_KEY && GHL_LOCATION_ID) {
-        await fetch('https://services.leadconnectorhq.com/contacts/', {
+      if (GHL_WEBHOOK_URL) {
+        await fetch(GHL_WEBHOOK_URL, {
           method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${GHL_API_KEY}`,
-            'Content-Type': 'application/json',
-            'Version': '2021-07-28',
-          },
-          body: JSON.stringify({
-            locationId: GHL_LOCATION_ID,
-            firstName:  payload.first_name,
-            email:      payload.email,
-            phone:      payload.phone || undefined,
-            tags:       ['playoff-2026', 'contest-entrant', `source-${payload.source}`],
-            customFields: [
-              { id: GHL_FIELDS.preferred_location, value: payload.preferred_location },
-              { id: GHL_FIELDS.campaign_name,      value: payload.campaign },
-              { id: GHL_FIELDS.campaign_source,    value: payload.source },
-              { id: GHL_FIELDS.contest_entry,      value: 'Yes' },
-            ],
-          }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
         });
       }
-
-      // Save to localStorage
-      localStorage.setItem(LS_KEY, JSON.stringify(payload));
-
-      // GA4
-      ga4('playoff_signup', {
-        source: payload.source,
-        location: payload.preferred_location,
-        has_phone: !!payload.phone,
-      });
-
-      showConfirmation(payload.first_name);
-    } catch (err) {
-      console.error('Submission error:', err);
-      showInlineError('Something went wrong. Please try again.');
-    } finally {
-      submitting = false;
-      btn.classList.remove('is-loading');
-      btn.disabled = false;
-    }
-  });
-}
-
-function buildPayload(form) {
-  const get = (id) => { const el = form.querySelector(`#${id}`); return el ? el.value.trim() : ''; };
-  return {
-    first_name:        get('field-name'),
-    email:             get('field-email'),
-    phone:             get('field-phone') || null,
-    preferred_location:get('field-location'),
-    campaign:          CAMPAIGN,
-    source:            urlSource,
-    utm_source:        utmSource,
-    utm_medium:        utmMedium,
-    utm_campaign:      utmCampaign,
-    utm_content:       utmContent,
-  };
-}
-
-function validateForm(form) {
-  let valid = true;
-
-  const name  = form.querySelector('#field-name');
-  const email = form.querySelector('#field-email');
-  const loc   = form.querySelector('#field-location');
-
-  if (!name.value.trim()) {
-    showFieldError(name, 'Your first name is required');
-    valid = false;
-  }
-  if (!email.value.trim()) {
-    showFieldError(email, 'Email address is required');
-    valid = false;
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-    showFieldError(email, 'Please enter a valid email address');
-    valid = false;
-  }
-  if (!loc.value) {
-    showFieldError(loc, 'Please select your nearest location');
-    valid = false;
-  }
-
-  return valid;
-}
-
-function showFieldError(input, msg) {
-  const group = input.closest('.form-group');
-  if (!group) return;
-  group.classList.add('has-error');
-  const errEl = group.querySelector('.form-error');
-  if (errEl) errEl.textContent = msg;
-}
-
-function clearErrors() {
-  document.querySelectorAll('.form-group.has-error').forEach(g => g.classList.remove('has-error'));
-}
-
-function showInlineError(msg) {
-  const el = document.getElementById('form-global-error');
-  if (el) { el.textContent = msg; el.style.display = 'block'; }
-}
-
 function showConfirmation(firstName) {
   const formInner = document.getElementById('form-inner');
   const confirm   = document.getElementById('form-confirmation');
