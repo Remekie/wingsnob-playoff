@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavScrollEffect();
   initGeoSort();
   initKeyboardDetection();
+  initLocationCollapse();
 });
 
 // ── HIDDEN FIELDS ─────────────────────────────────────────
@@ -412,6 +413,29 @@ function applyGeoSort(lat, lng) {
       grid.prepend(nearestCard);
     }
   }
+}
+
+// ── LOCATION COLLAPSE (mobile) ────────────────────────────
+function initLocationCollapse() {
+  const grid = document.getElementById('locations-grid');
+  const btn  = document.getElementById('locations-show-more');
+  if (!grid || !btn) return;
+
+  function collapseCards() {
+    if (window.innerWidth > 767) return;
+    const cards = grid.querySelectorAll('.location-card');
+    cards.forEach((card, i) => {
+      card.classList.toggle('is-collapsed', i >= 3);
+    });
+  }
+
+  collapseCards();
+  window.addEventListener('resize', collapseCards);
+
+  btn.addEventListener('click', () => {
+    grid.querySelectorAll('.location-card.is-collapsed').forEach(c => c.classList.remove('is-collapsed'));
+    btn.classList.add('is-expanded');
+  });
 }
 
 // ── SMOOTH SCROLL for anchor CTAs ─────────────────────────
