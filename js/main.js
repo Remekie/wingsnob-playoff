@@ -5,7 +5,7 @@
 
 // ── CONFIG — values come from js/config.js ────────────────
 const _cfg            = window.WINGSNOB_CONFIG || {};
-const GHL_WEBHOOK_URL = _cfg.GHL_WEBHOOK_URL || '';
+const GHL_WEBHOOK_URL = _cfg.GHL_WEBHOOK_URL || 'YOUR_GHL_WEBHOOK_URL';
 const CAMPAIGN        = _cfg.CAMPAIGN        || 'playoff-2026';
 const PROMO_CODE      = _cfg.PROMO_CODE      || 'PLAYOFF6';
 const ORDER_URL       = _cfg.ORDER_URL       || 'https://order.wingsnob.ca';
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavScrollEffect();
   initGeoSort();
   initKeyboardDetection();
-  initLocationCollapse();
 });
 
 // ── HIDDEN FIELDS ─────────────────────────────────────────
@@ -84,7 +83,7 @@ function checkReturningVisitor() {
   if (welcomeBack) {
     welcomeBack.classList.add('visible');
     const nameEl = welcomeBack.querySelector('.wb-name');
-    if (nameEl && data.first_name) nameEl.textContent = ` ${data.first_name}`;
+    if (nameEl && data.first_name) nameEl.textContent = data.first_name;
   }
 }
 
@@ -120,7 +119,7 @@ function initForm() {
     const payload = buildPayload(form);
 
     try {
-      if (GHL_WEBHOOK_URL) {
+      if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL') {
         await fetch(GHL_WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -148,6 +147,65 @@ function initForm() {
       btn.disabled = false;
     }
   });
+}
+
+function buildPayload(form) {
+  const get = (id) => { const el = form.querySelector(`#${id}`); return el ? el.value.trim() : ''; };
+  return {
+    first_name:        get('field-name'),
+    email:             get('field-email'),
+    phone:             get('field-phone') || null,
+    preferred_location:get('field-location'),
+    campaign:          CAMPAIGN,
+    source:            urlSource,
+    utm_source:        utmSource,
+    utm_medium:        utmMedium,
+    utm_campaign:      utmCampaign,
+    utm_content:       utmContent,
+  };
+}
+
+function validateForm(form) {
+  let valid = true;
+
+  const name  = form.querySelector('#field-name');
+  const email = form.querySelector('#field-email');
+  const loc   = form.querySelector('#field-location');
+
+  if (!name.value.trim()) {
+    showFieldError(name, 'Your first name is required');
+    valid = false;
+  }
+  if (!email.value.trim()) {
+    showFieldError(email, 'Email address is required');
+    valid = false;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+    showFieldError(email, 'Please enter a valid email address');
+    valid = false;
+  }
+  if (!loc.value) {
+    showFieldError(loc, 'Please select your nearest location');
+    valid = false;
+  }
+
+  return valid;
+}
+
+function showFieldError(input, msg) {
+  const group = input.closest('.form-group');
+  if (!group) return;
+  group.classList.add('has-error');
+  const errEl = group.querySelector('.form-error');
+  if (errEl) errEl.textContent = msg;
+}
+
+function clearErrors() {
+  document.querySelectorAll('.form-group.has-error').forEach(g => g.classList.remove('has-error'));
+}
+
+function showInlineError(msg) {
+  const el = document.getElementById('form-global-error');
+  if (el) { el.textContent = msg; el.style.display = 'block'; }
 }
 
 function showConfirmation(firstName) {
@@ -336,29 +394,6 @@ function applyGeoSort(lat, lng) {
       grid.prepend(nearestCard);
     }
   }
-}
-
-// ── LOCATION COLLAPSE (mobile) ────────────────────────────
-function initLocationCollapse() {
-  const grid = document.getElementById('locations-grid');
-  const btn  = document.getElementById('locations-show-more');
-  if (!grid || !btn) return;
-
-  function collapseCards() {
-    if (window.innerWidth > 767) return;
-    const cards = grid.querySelectorAll('.location-card');
-    cards.forEach((card, i) => {
-      card.classList.toggle('is-collapsed', i >= 3);
-    });
-  }
-
-  collapseCards();
-  window.addEventListener('resize', collapseCards);
-
-  btn.addEventListener('click', () => {
-    grid.querySelectorAll('.location-card.is-collapsed').forEach(c => c.classList.remove('is-collapsed'));
-    btn.classList.add('is-expanded');
-  });
 }
 
 // ── SMOOTH SCROLL for anchor CTAs ─────────────────────────
