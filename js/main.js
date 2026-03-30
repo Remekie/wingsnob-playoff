@@ -127,6 +127,29 @@ function initForm() {
           body: JSON.stringify(payload),
         });
       }
+
+      // Save to localStorage
+      localStorage.setItem(LS_KEY, JSON.stringify(payload));
+
+      // GA4
+      ga4('playoff_signup', {
+        source: payload.source,
+        location: payload.preferred_location,
+        has_phone: !!payload.phone,
+      });
+
+      showConfirmation(payload.first_name);
+    } catch (err) {
+      console.error('Submission error:', err);
+      showInlineError('Something went wrong. Please try again.');
+    } finally {
+      submitting = false;
+      btn.classList.remove('is-loading');
+      btn.disabled = false;
+    }
+  });
+}
+
 function showConfirmation(firstName) {
   const formInner = document.getElementById('form-inner');
   const confirm   = document.getElementById('form-confirmation');
