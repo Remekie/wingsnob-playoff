@@ -178,22 +178,9 @@
   </script>
 
   <!-- Config — fill in js/config.js before going live -->
-  <script src="js/config.js"></script>
+  <script src="js/config.js" defer></script>
 
-  <!-- GA4 — ID is pulled from config.js -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    const _ga4id = window.WINGSNOB_CONFIG && window.WINGSNOB_CONFIG.GA4_ID;
-    if (_ga4id && _ga4id !== 'G-XXXXXXXXXX') {
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + _ga4id;
-      document.head.appendChild(s);
-      gtag('config', _ga4id);
-    }
-  </script>
+  <!-- GA4 init moved to main.js (runs after deferred config.js) -->
 </head>
 <body>
 
@@ -214,6 +201,8 @@
   </div>
 </nav>
 
+<main id="main-content">
+
 <!-- ═══════════════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════════════ -->
@@ -230,14 +219,14 @@
         <span>Playoff Tickets.</span>
       </h1>
       <p class="hero__sub">
-        Enter for a shot at Oilers playoff tickets. <strong style="color:#fff">Free wings hit your inbox</strong> the moment you sign up.
+        Enter for a shot at Oilers playoff tickets. <strong class="text-white">Free wings hit your inbox</strong> the moment you sign up.
       </p>
       <div class="hero__ctas">
         <a class="btn btn-primary btn-lg" href="#offer" aria-label="Enter to win tickets">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
           Enter to Win — Free Wings Included
         </a>
-        <a class="btn btn-outline btn-lg" href="https://www.skipthedishes.com/wing-snob" target="_blank" rel="noopener" data-order="hero">
+        <a class="btn btn-outline btn-lg" href="https://www.skipthedishes.com/wing-snob" target="_blank" rel="noopener noreferrer" data-order="hero">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
           Order Now
         </a>
@@ -323,7 +312,7 @@
       <!-- LEFT: Pitch -->
       <div class="offer__pitch">
         <span class="offer__tag">Playoffs End. So Does This.</span>
-        <h2 class="offer__headline">Win Tickets.<br><span style="color:var(--red)">Get Free Wings.</span></h2>
+        <h2 class="offer__headline">Win Tickets.<br><span class="text-red">Get Free Wings.</span></h2>
 
         <!-- Prize block -->
         <div class="offer__prize">
@@ -333,7 +322,7 @@
         </div>
 
         <p class="offer__sub">
-          One signup. One entry. <strong style="color:#fff">Free wings the moment you submit.</strong>
+          One signup. One entry. <strong class="text-white">Free wings the moment you submit.</strong>
         </p>
         <ul class="offer__perks" aria-label="Offer details">
           <li class="offer__perk">
@@ -363,7 +352,7 @@
           <p class="welcome-back__sub">Your free wings code is still valid.</p>
           <div class="welcome-back__code" aria-label="Promo code">PLAYOFF6</div>
           <p class="welcome-back__sub">Use on orders $30+ at any Edmonton Wing Snob.</p>
-          <a class="btn btn-primary btn-full" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="welcome-back">Order Now</a>
+          <a class="btn btn-primary btn-full" href="https://order.wingsnob.ca" target="_blank" rel="noopener noreferrer" data-order="welcome-back">Order Now</a>
         </div>
 
         <!-- Signup Form Card -->
@@ -467,16 +456,16 @@
             <!-- Confirmation state (hidden until submit) -->
             <div class="form-confirmation" id="form-confirmation" role="region" aria-label="Signup confirmed" aria-live="polite">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#5A9A5A" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <div class="confirm-title" style="margin-top:12px">You're Entered<span class="confirm-name"></span>!</div>
-              <p class="confirm-text" style="color:#5A9A5A;font-weight:600;">Your entry for 1 of 20 pairs of Oilers playoff tickets is confirmed.</p>
+              <div class="confirm-title mt-10">You're Entered<span class="confirm-name"></span>!</div>
+              <p class="confirm-text text-green">Your entry for 1 of 20 pairs of Oilers playoff tickets is confirmed.</p>
               <p class="confirm-text">Draws before every home game. You're in every one. Winner announced on @wingsnobca.</p>
-              <p class="confirm-text" style="margin-top:16px;">Your free wings code — use it tonight:</p>
+              <p class="confirm-text mt-16">Your free wings code — use it tonight:</p>
               <div class="confirm-code" aria-label="Promo code: PLAYOFF6">PLAYOFF6</div>
               <p class="confirm-text">
                 Free 6-piece wings on any order of <strong>$30+</strong>.<br>
                 Check your inbox for confirmation.
               </p>
-              <a class="btn btn-primary btn-full" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="confirmation">
+              <a class="btn btn-primary btn-full" href="https://order.wingsnob.ca" target="_blank" rel="noopener noreferrer" data-order="confirmation">
                 Order Now
               </a>
             </div>
@@ -525,7 +514,7 @@
 
     </div>
     <div style="text-align:center;margin-top:40px;">
-      <a class="btn btn-primary btn-lg" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="how-it-works">Order Wings Tonight</a>
+      <a class="btn btn-primary btn-lg" href="https://order.wingsnob.ca" target="_blank" rel="noopener noreferrer" data-order="how-it-works">Order Wings Tonight</a>
     </div>
   </div>
 </section>
@@ -601,7 +590,7 @@
         <address class="location-card__address">11988-104 Avenue Bldg 4<br>Edmonton, AB T5K 2G2</address>
         <div class="location-card__phone">(780) 760-9464</div>
         <div class="location-card__hours"><span>Open</span> · 11am–11pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob" target="_blank" rel="noopener" data-order="location-brewery">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob" target="_blank" rel="noopener noreferrer" data-order="location-brewery">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Edmonton - Eversquare" data-lat="53.4960" data-lng="-113.5040">
@@ -612,7 +601,7 @@
         <address class="location-card__address">4624 Gateway Blvd NW<br>Edmonton, AB T6H 4P1</address>
         <div class="location-card__phone">(587) 635-0792</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-eversquare" target="_blank" rel="noopener" data-order="location-eversquare">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-eversquare" target="_blank" rel="noopener noreferrer" data-order="location-eversquare">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Edmonton - Northgate" data-lat="53.5957" data-lng="-113.5260">
@@ -623,7 +612,7 @@
         <address class="location-card__address">9499 137 Ave NW Unit 1000<br>Edmonton, AB T5E 5R8</address>
         <div class="location-card__phone">(780) 244-5722</div>
         <div class="location-card__hours"><span>Open</span> · 11am–9pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-137-avenue" target="_blank" rel="noopener" data-order="location-northgate">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-137-avenue" target="_blank" rel="noopener noreferrer" data-order="location-northgate">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Edmonton - Meadows" data-lat="53.4550" data-lng="-113.3900">
@@ -634,7 +623,7 @@
         <address class="location-card__address">1914 38 Ave NW<br>Edmonton, AB T6T 0B9</address>
         <div class="location-card__phone">(780) 244-3400</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-38" target="_blank" rel="noopener" data-order="location-meadows">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-38" target="_blank" rel="noopener noreferrer" data-order="location-meadows">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Edmonton - Manning" data-lat="53.5950" data-lng="-113.4540">
@@ -645,7 +634,7 @@
         <address class="location-card__address">15558 37 St NW<br>Edmonton, AB T5Y 0S5</address>
         <div class="location-card__phone">(780) 540-9464</div>
         <div class="location-card__hours"><span>Open</span> · 11am–11pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-nw" target="_blank" rel="noopener" data-order="location-manning">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-nw" target="_blank" rel="noopener noreferrer" data-order="location-manning">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Edmonton - Albany" data-lat="53.6410" data-lng="-113.5060">
@@ -656,7 +645,7 @@
         <address class="location-card__address">12772 167 Ave NW<br>Edmonton, AB T6V 1J6</address>
         <div class="location-card__phone">(780) 244-4173</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-167-avenue" target="_blank" rel="noopener" data-order="location-albany">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-167-avenue" target="_blank" rel="noopener noreferrer" data-order="location-albany">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Edmonton - Rabbit Hill" data-lat="53.4530" data-lng="-113.5700">
@@ -667,7 +656,7 @@
         <address class="location-card__address">5116 Mullen Road NW<br>Edmonton, AB T6R 0S9</address>
         <div class="location-card__phone">(780) 249-5774</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-5116" target="_blank" rel="noopener" data-order="location-rabbit-hill">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-5116" target="_blank" rel="noopener noreferrer" data-order="location-rabbit-hill">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Edmonton - Hamptons" data-lat="53.5290" data-lng="-113.6580">
@@ -678,7 +667,7 @@
         <address class="location-card__address">20020 Lessard Rd NW<br>Edmonton, AB T6M 0T9</address>
         <div class="location-card__phone">(587) 415-3554</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-lessard-road" target="_blank" rel="noopener" data-order="location-hamptons">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-lessard-road" target="_blank" rel="noopener noreferrer" data-order="location-hamptons">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Sherwood Park" data-lat="53.5350" data-lng="-113.3140">
@@ -689,7 +678,7 @@
         <address class="location-card__address">80-1020 Sherwood Drive<br>Sherwood Park, AB T8A 4N5</address>
         <div class="location-card__phone">(587) 269-1016</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-sherwood-drive" target="_blank" rel="noopener" data-order="location-sherwood-park">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-sherwood-drive" target="_blank" rel="noopener noreferrer" data-order="location-sherwood-park">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Leduc" data-lat="53.2730" data-lng="-113.5490">
@@ -700,7 +689,7 @@
         <address class="location-card__address">5411 Discovery Way Unit 108<br>Leduc, AB T9E 8N4</address>
         <div class="location-card__phone">(780) 739-2602</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-discovery-way" target="_blank" rel="noopener" data-order="location-leduc">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-discovery-way" target="_blank" rel="noopener noreferrer" data-order="location-leduc">Order on Skip</a>
       </article>
 
       <article class="location-card" data-location-key="Calgary - Legacy" data-lat="50.8840" data-lng="-113.9820">
@@ -711,7 +700,7 @@
         <address class="location-card__address">180 Legacy Main Street SE, Unit 160<br>Calgary, AB T2X 4R9</address>
         <div class="location-card__phone">(825) 401-6080</div>
         <div class="location-card__hours"><span>Open</span> · 11am–10pm daily</div>
-        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-legacy-main-street" target="_blank" rel="noopener" data-order="location-calgary-legacy">Order on Skip</a>
+        <a class="location-card__btn" href="https://www.skipthedishes.com/wing-snob-legacy-main-street" target="_blank" rel="noopener noreferrer" data-order="location-calgary-legacy">Order on Skip</a>
       </article>
 
     </div>
@@ -758,7 +747,7 @@
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" role="region">
-          <p>Order at <a href="https://order.wingsnob.ca" style="color:var(--red)">order.wingsnob.ca</a>, add your items, go to checkout, and enter <strong>PLAYOFF6</strong> in the discount code box. Valid on orders of $30 or more. One use per customer, valid all playoff season. You can also mention it in-store at pickup.</p>
+          <p>Order at <a href="https://order.wingsnob.ca" class="link-red">order.wingsnob.ca</a>, add your items, go to checkout, and enter <strong>PLAYOFF6</strong> in the discount code box. Valid on orders of $30 or more. One use per customer, valid all playoff season. You can also mention it in-store at pickup.</p>
         </div>
       </li>
 
@@ -768,7 +757,7 @@
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" role="region">
-          <p>Yes — Wing Snob is on <strong>Skip the Dishes</strong> at all Alberta locations (links on this page). You can also order direct for pickup at <a href="https://order.wingsnob.ca" style="color:var(--red)">order.wingsnob.ca</a>. The PLAYOFF6 promo code works on direct orders only — not through third-party delivery apps.</p>
+          <p>Yes — Wing Snob is on <strong>Skip the Dishes</strong> at all Alberta locations (links on this page). You can also order direct for pickup at <a href="https://order.wingsnob.ca" class="link-red">order.wingsnob.ca</a>. The PLAYOFF6 promo code works on direct orders only — not through third-party delivery apps.</p>
         </div>
       </li>
 
@@ -778,7 +767,7 @@
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" role="region">
-          <p>Sign up above with your name, email, and nearest location. <strong>No purchase necessary.</strong> One entry per person. We're giving away <strong>20 pairs</strong> of 2026 Oilers playoff tickets. Tickets drawn before each home playoff game — sign up early to be in every draw. Winners announced on <a href="https://www.instagram.com/wingsnobca/" style="color:var(--red)">@wingsnobca</a>. Open to Alberta residents 18+. Full rules at wingsnob.ca/contest.</p>
+          <p>Sign up above with your name, email, and nearest location. <strong>No purchase necessary.</strong> One entry per person. We're giving away <strong>20 pairs</strong> of 2026 Oilers playoff tickets. Tickets drawn before each home playoff game — sign up early to be in every draw. Winners announced on <a href="https://www.instagram.com/wingsnobca/" class="link-red">@wingsnobca</a>. Open to Alberta residents 18+. Full rules at wingsnob.ca/contest.</p>
         </div>
       </li>
 
@@ -788,7 +777,7 @@
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" role="region">
-          <p>Yes — Wing Snob caters events up to <strong>500 guests</strong> with 24-hour notice. Wing packs go up to 50 pieces per order. Contact your nearest location directly or visit <a href="https://www.wingsnob.ca/catering" style="color:var(--red)">wingsnob.ca/catering</a>.</p>
+          <p>Yes — Wing Snob caters events up to <strong>500 guests</strong> with 24-hour notice. Wing packs go up to 50 pieces per order. Contact your nearest location directly or visit <a href="https://www.wingsnob.ca/catering" class="link-red">wingsnob.ca/catering</a>.</p>
         </div>
       </li>
 
@@ -798,7 +787,7 @@
           <span class="faq__icon" aria-hidden="true"></span>
         </button>
         <div class="faq__answer" role="region">
-          <p>Wing Snob runs bold sauces: <strong>Mango Habanero, Buffalo, Garlic Parmesan, Jamaican Jerk, Honey Garlic, Cajun,</strong> and Buffalo Lemon Pepper — plus seasonal options. Traditional bone-in, boneless wings, and tenders all available. Five fry flavors too. Full menu at <a href="https://www.wingsnob.ca/menu" style="color:var(--red)">wingsnob.ca/menu</a>.</p>
+          <p>Wing Snob runs bold sauces: <strong>Mango Habanero, Buffalo, Garlic Parmesan, Jamaican Jerk, Honey Garlic, Cajun,</strong> and Buffalo Lemon Pepper — plus seasonal options. Traditional bone-in, boneless wings, and tenders all available. Five fry flavors too. Full menu at <a href="https://www.wingsnob.ca/menu" class="link-red">wingsnob.ca/menu</a>.</p>
         </div>
       </li>
 
@@ -825,22 +814,24 @@
         <a href="https://www.wingsnob.ca/menu">Menu</a>
         <a href="https://www.wingsnob.ca/locations">Locations</a>
         <a href="https://www.wingsnob.ca/catering">Catering</a>
-        <a href="https://www.instagram.com/wingsnobca" target="_blank" rel="noopener">@wingsnobca</a>
+        <a href="https://www.instagram.com/wingsnobca" target="_blank" rel="noopener noreferrer">@wingsnobca</a>
         <a href="https://www.wingsnob.ca/contact">Contact</a>
       </nav>
 
       <div class="footer__cta">
-        <a class="btn btn-primary" href="https://order.wingsnob.ca" target="_blank" rel="noopener" data-order="footer">Order Wings Now</a>
+        <a class="btn btn-primary" href="https://order.wingsnob.ca" target="_blank" rel="noopener noreferrer" data-order="footer">Order Wings Now</a>
       </div>
 
       <p class="footer__copy">
-        WingSnob Canada &nbsp;·&nbsp; <a href="https://www.wingsnob.ca" style="color:inherit">wingsnob.ca</a><br>
+        WingSnob Canada &nbsp;·&nbsp; <a href="https://www.wingsnob.ca" class="link-inherit">wingsnob.ca</a><br>
         &copy; 2026 Wing Snob Franchising LLC &nbsp;·&nbsp;
-        <a href="https://www.wingsnob.ca" style="color:inherit">Privacy Policy</a> &nbsp;·&nbsp;
-        <a href="https://www.wingsnob.ca" style="color:inherit">Terms of Service</a>
+        <a href="https://www.wingsnob.ca" class="link-inherit">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="https://www.wingsnob.ca" class="link-inherit">Terms of Service</a>
       </p>
     </div>
   </div>
+</main><!-- /#main-content -->
+
 </footer>
 
 <!-- ── MOBILE STICKY CTA BAR ─────────────────────────────── -->

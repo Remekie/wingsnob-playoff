@@ -19,10 +19,23 @@ const utmMedium     = params.get('utm_medium')   || '';
 const utmCampaign   = params.get('utm_campaign') || '';
 const utmContent    = params.get('utm_content')  || '';
 
-// ── GA4 ───────────────────────────────────────────────────
+// ── GA4 init (runs after deferred config.js) ─────────────
+(function initGA4() {
+  const id = (window.WINGSNOB_CONFIG || {}).GA4_ID;
+  if (!id || id === 'G-XXXXXXXXXX') return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function() { window.dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', id);
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+  document.head.appendChild(s);
+})();
+
 function ga4(event, data = {}) {
-  if (typeof gtag === 'function') {
-    gtag('event', event, data);
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', event, data);
   }
 }
 

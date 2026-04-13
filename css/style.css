@@ -105,8 +105,12 @@ section { width: 100%; }
   margin: 0 auto;
   padding: 0 20px;
 }
-.section-pad { padding: 64px 0; }
-.section-pad-sm { padding: 40px 0; }
+.section-pad { padding: 44px 0; }
+.section-pad-sm { padding: 28px 0; }
+@media (min-width: 640px) {
+  .section-pad { padding: 64px 0; }
+  .section-pad-sm { padding: 40px 0; }
+}
 
 /* ── NAV ─────────────────────────────────────────────────── */
 .nav {
@@ -121,10 +125,13 @@ section { width: 100%; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
-  padding: 0 24px;
+  height: 64px;
+  padding: 0 16px;
   max-width: 1200px;
   margin: 0 auto;
+}
+@media (min-width: 640px) {
+  .nav__inner { height: 72px; padding: 0 24px; }
 }
 .nav__logo {
   display: flex;
@@ -132,12 +139,15 @@ section { width: 100%; }
   flex-shrink: 0;
 }
 .nav__logo img {
-  height: 64px;
+  height: 48px;
   width: auto;
   display: block;
-  max-width: none;
+  max-width: 160px;
   /* Brighten the dark badge so it pops on black nav */
   filter: brightness(1.15) drop-shadow(0 0 8px rgba(197,16,15,0.4));
+}
+@media (min-width: 640px) {
+  .nav__logo img { height: 64px; max-width: none; }
 }
 .nav__cta {
   display: none;
@@ -149,7 +159,7 @@ section { width: 100%; }
 /* ── HERO ────────────────────────────────────────────────── */
 .hero {
   background: var(--black);
-  padding-top: 72px; /* nav offset */
+  padding-top: 64px; /* nav offset */
   min-height: 100svh;
   display: flex;
   align-items: center;
@@ -273,10 +283,16 @@ section { width: 100%; }
 }
 .props__item {
   background: var(--black-2);
-  padding: 28px 24px;
+  padding: 20px 16px;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
+}
+@media (min-width: 480px) {
+  .props__item { padding: 28px 24px; gap: 16px; }
+}
+@media (max-width: 359px) {
+  .props__grid { grid-template-columns: 1fr; }
 }
 .props__icon {
   flex-shrink: 0;
@@ -399,7 +415,10 @@ section { width: 100%; }
   background: var(--black-4);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 32px;
+  padding: 20px 16px;
+}
+@media (min-width: 480px) {
+  .form-card { padding: 32px; }
 }
 .form-card__title {
   font-family: var(--font-display);
@@ -477,13 +496,14 @@ section { width: 100%; }
 .form-confirmation.visible { display: block; }
 .confirm-code {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 8vw, 2.5rem);
   color: var(--red);
   letter-spacing: 0.1em;
   margin: 16px 0;
   border: 2px dashed var(--red);
-  padding: 12px 24px;
-  display: inline-block;
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
   border-radius: var(--radius);
 }
 .confirm-title {
@@ -832,6 +852,20 @@ section { width: 100%; }
   background: var(--border);
   width: 100%;
 }
+
+/* ── UTILITY CLASSES (replaces inline styles) ────────────── */
+.text-white  { color: var(--white); }
+.text-red    { color: var(--red); }
+.text-green  { color: #5A9A5A; font-weight: 600; }
+.link-red    { color: var(--red); }
+.link-red:hover { color: var(--red-bright); }
+.link-inherit { color: inherit; }
+.link-inherit:hover { color: inherit; }
+.text-center { text-align: center; }
+.mt-10  { margin-top: 10px; }
+.mt-16  { margin-top: 16px; }
+.mt-24  { margin-top: 24px; }
+.mt-40  { margin-top: 40px; }
 
 /* ── ACCESSIBILITY ───────────────────────────────────────── */
 :focus-visible {
