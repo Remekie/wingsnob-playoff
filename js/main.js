@@ -135,13 +135,12 @@ function initForm() {
     const payload = buildPayload(form);
 
     try {
-      // Fire-and-forget: no-cors avoids preflight, response is opaque (we don't need it)
+      // Fire-and-forget: GHL supports CORS (access-control-allow-origin: *)
       // Confirmation always shows — webhook failure is silent so user isn't penalized
       if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL') {
         fetch(GHL_WEBHOOK_URL, {
           method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         }).catch(err => console.warn('GHL webhook failed silently:', err));
       }
