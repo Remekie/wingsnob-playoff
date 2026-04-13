@@ -89,7 +89,9 @@ function checkReturningVisitor() {
   const existing = localStorage.getItem(LS_KEY);
   if (!existing) return;
 
-  const data = JSON.parse(existing);
+  let data;
+  try { data = JSON.parse(existing); } catch { localStorage.removeItem(LS_KEY); return; }
+
   const formCard     = document.getElementById('signup-form-card');
   const welcomeBack  = document.getElementById('welcome-back');
 
@@ -133,12 +135,15 @@ function initForm() {
     const payload = buildPayload(form);
 
     try {
+      // Fire-and-forget: no-cors avoids preflight, response is opaque (we don't need it)
+      // Confirmation always shows — webhook failure is silent so user isn't penalized
       if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL') {
-        await fetch(GHL_WEBHOOK_URL, {
+        fetch(GHL_WEBHOOK_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify(payload),
-        });
+        }).catch(err => console.warn('GHL webhook failed silently:', err));
       }
 
       // Save to localStorage
@@ -254,9 +259,8 @@ function initFAQ() {
 function initOrderButtons() {
   document.querySelectorAll('[data-order]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const loc = btn.dataset.order || 'unknown';
-      ga4('order_click', { button_location: loc });
-      window.open(ORDER_URL, '_blank', 'noopener');
+      ga4('order_click', { button_location: btn.dataset.order || 'unknown' });
+      // href/target="_blank" handles navigation — no window.open needed
     });
   });
 }
