@@ -14,7 +14,7 @@ window.WINGSNOB_CONFIG = {
   // ── Google Analytics 4 ───────────────────────────────────
   // 1. analytics.google.com → Admin → Create Property
   // 2. Copy the Measurement ID (format: G-XXXXXXXXXX)
-  GA4_ID: 'G-XXXXXXXXXX',
+  GA4_ID: 'G-79DP8WX9RZ',
 
   // ── Campaign Settings ────────────────────────────────────
   CAMPAIGN:   'playoff-2026',
