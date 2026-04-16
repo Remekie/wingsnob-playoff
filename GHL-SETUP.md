@@ -243,14 +243,20 @@ Reply STOP to opt out.
 
 ---
 
-## Step 8 — GA4 Setup (10 min)
-1. Go to analytics.google.com
-2. Admin → Create Property → "WingSnob Playoff 2026"
-3. Set up Web Data Stream → enter your Netlify URL
-4. Copy the Measurement ID (G-XXXXXXXXXX)
-5. Open `js/config.js` → paste: `GA4_ID: 'G-XXXXXXXXXX'`
+## Step 8 — GA4 Setup ✅ DONE
 
-**Events already tracked automatically:**
+**Property:** Wing Snob Playoffs (under Zyra Spirits Inc account, #360463412)
+
+| Field | Value |
+|-------|-------|
+| Stream name | Wing Snob Playoffs |
+| Stream URL | https://playoffs.wingsnob.ca/ |
+| Stream ID | 14377124439 |
+| Measurement ID | G-79DP8WX9RZ |
+
+`js/config.js` already contains the live Measurement ID.
+
+**Events tracked automatically:**
 - `page_view` — every visit, with source + campaign
 - `form_start` — first field focused
 - `playoff_signup` — successful form submission (source, location, has_phone)
@@ -269,7 +275,7 @@ Reply STOP to opt out.
 - [ ] Email 1 built and tested (send to yourself)
 - [ ] Email 2 built (48hr delay, condition: Email 1 not clicked)
 - [ ] SMS 1 built (condition: phone field not empty)
-- [ ] GA4 Measurement ID copied into `js/config.js`
+- [x] GA4 Measurement ID G-79DP8WX9RZ in `js/config.js` (Stream ID: 14377124439)
 - [ ] Deployed to Netlify
 - [ ] End-to-end test: submit form → check GHL contact → check inbox
 - [ ] QR codes generated with ?source=qr&location=brewery-district etc.
