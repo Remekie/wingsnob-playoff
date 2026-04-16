@@ -1067,8 +1067,9 @@ section { width: 100%; }
     padding: 14px 20px;
   }
   /* Add extra bottom padding so sticky bar doesn't cover form submit */
+  /* Use safe-area-inset-bottom so iPhones with home bar (~34px) are covered too */
   #signup-form-card {
-    padding-bottom: 80px;
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
   }
   .welcome-back {
     padding: 24px 20px;

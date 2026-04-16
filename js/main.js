@@ -124,14 +124,13 @@ function initForm() {
     const payload = buildPayload(form);
 
     try {
-      // Fire-and-forget: GHL supports CORS (access-control-allow-origin: *)
-      // Confirmation always shows — webhook failure is silent so user isn't penalized
       if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL') {
-        fetch(GHL_WEBHOOK_URL, {
+        const res = await fetch(GHL_WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
-        }).catch(err => console.warn('GHL webhook failed silently:', err));
+        });
+        if (!res.ok) throw new Error(`GHL webhook failed: ${res.status}`);
       }
 
       // Save to localStorage
