@@ -52,6 +52,7 @@ const LOCATIONS = [
   { key: 'Sherwood Park',               lat: 53.5350, lng: -113.3140, skip: 'https://www.skipthedishes.com/wing-snob-sherwood-drive' },
   { key: 'Leduc',                       lat: 53.2730, lng: -113.5490, skip: 'https://www.skipthedishes.com/wing-snob-discovery-way' },
   { key: 'Calgary - Legacy',            lat: 50.8840, lng: -113.9820, skip: 'https://www.skipthedishes.com/wing-snob-legacy-main-street' },
+  { key: 'Grande Prairie',              lat: 55.1707, lng: -118.7885, skip: 'https://www.skipthedishes.com/wing-snob-grande-prairie' },
 ];
 
 // ── INIT ──────────────────────────────────────────────────

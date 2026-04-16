@@ -12,9 +12,11 @@ Settings → Custom Fields → Add Field:
 
 | Field Name | Type |
 |------------|------|
-| preferred_location | Dropdown: Brewery District, Eversquare, Northgate, Meadows, Manning, Albany, Rabbit Hill, Hamptons, Sherwood Park, Leduc, Calgary Legacy |
+| preferred_location | Dropdown: Brewery District, Eversquare, Northgate, Meadows, Manning, Albany, Rabbit Hill, Hamptons, Sherwood Park, Leduc, Calgary Legacy, Grande Prairie |
 | campaign_source | Single Line Text |
 | campaign_name | Single Line Text |
+| utm_source | Single Line Text |
+| utm_medium | Single Line Text |
 | contest_entry | Checkbox |
 | code_redeemed | Checkbox |
 | ticket_winner | Checkbox |
@@ -63,6 +65,8 @@ Trigger: Inbound Webhook
   → Create/Update Contact
   → Set custom field: campaign_name = playoff-2026
   → Set custom field: campaign_source = {{source}}
+  → Set custom field: utm_source = {{utm_source}}
+  → Set custom field: utm_medium = {{utm_medium}}
   → Set custom field: preferred_location = {{preferred_location}}
   → Set custom field: contest_entry = true
   → Add to Pipeline "Playoff 2026" → Stage: New Entry
@@ -92,6 +96,8 @@ Trigger: Inbound Webhook
 | `location-sherwood-park` | preferred_location = Sherwood Park |
 | `location-leduc` | preferred_location = Leduc |
 | `location-calgary-legacy` | preferred_location = Calgary Legacy |
+| `location-grande-prairie` | preferred_location = Grande Prairie |
+| `source-in-store` | source = in-store |
 | `source-qr` | source = qr |
 | `source-ad` | source = ad |
 | `source-social` | source = social |
