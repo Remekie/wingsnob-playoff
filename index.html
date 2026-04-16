@@ -203,10 +203,17 @@
   }
   </script>
 
-  <!-- Config — fill in js/config.js before going live -->
-  <script src="js/config.js" defer></script>
+  <!-- GA4 — static tag required for Search Console verification -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79DP8WX9RZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79DP8WX9RZ');
+  </script>
 
-  <!-- GA4 init moved to main.js (runs after deferred config.js) -->
+  <!-- Config -->
+  <script src="js/config.js" defer></script>
 </head>
 <body>
 
