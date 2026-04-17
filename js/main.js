@@ -168,8 +168,8 @@ function initForm() {
         try {
           res = await fetch(GHL_WEBHOOK_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(payload).toString(),
           });
         } catch (fetchErr) {
           debugLog('fetch error', fetchErr.message, true);
