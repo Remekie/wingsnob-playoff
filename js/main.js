@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   populateHiddenFields();
+  populateLocationSelect();
   checkReturningVisitor();
   initForm();
   initFAQ();
@@ -61,6 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initKeyboardDetection();
   initLocationCollapse();
 });
+
+// ── LOCATION SELECT ───────────────────────────────────────
+function populateLocationSelect() {
+  const select = document.getElementById('field-location');
+  if (!select) return;
+  LOCATIONS.forEach(loc => {
+    const opt = document.createElement('option');
+    opt.value = loc.key;
+    opt.textContent = loc.key;
+    select.appendChild(opt);
+  });
+}
 
 // ── HIDDEN FIELDS ─────────────────────────────────────────
 function populateHiddenFields() {
@@ -125,12 +138,21 @@ function initForm() {
 
     try {
       if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL') {
-        const res = await fetch(GHL_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        if (!res.ok) throw new Error(`GHL webhook failed: ${res.status}`);
+        let res;
+        try {
+          res = await fetch(GHL_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        } catch {
+          throw new Error('network');
+        }
+        if (!res.ok) {
+          const err = new Error(`GHL webhook failed: ${res.status}`);
+          err.status = res.status;
+          throw err;
+        }
       }
 
       // Save to localStorage
@@ -146,7 +168,13 @@ function initForm() {
       showConfirmation(payload.first_name);
     } catch (err) {
       console.error('Submission error:', err);
-      showInlineError('Something went wrong. Please try again.');
+      if (err.message === 'network') {
+        showInlineError('Connection failed — check your internet and try again.');
+      } else if (err.status >= 400 && err.status < 500) {
+        showInlineError('Your entry couldn\'t be processed. Please email us at info@wingsnob.ca.');
+      } else {
+        showInlineError('Something went wrong on our end — please try again in a moment.');
+      }
     } finally {
       submitting = false;
       btn.classList.remove('is-loading');
@@ -232,10 +260,14 @@ function initFAQ() {
       const wasOpen = item.classList.contains('open');
 
       // Close all
-      document.querySelectorAll('.faq__item.open').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq__item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+      });
 
       if (!wasOpen) {
         item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
         ga4('faq_expand', { question: btn.textContent.trim().slice(0, 60) });
       }
     });
@@ -257,7 +289,7 @@ function initNavScrollEffect() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
   window.addEventListener('scroll', () => {
-    nav.style.borderBottomColor = window.scrollY > 40 ? 'rgba(197,16,15,0.3)' : '';
+    nav.classList.toggle('nav--scrolled', window.scrollY > 40);
   }, { passive: true });
 }
 
@@ -327,16 +359,9 @@ function injectGeoButton(select) {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.id = 'geo-btn';
-  btn.textContent = '📍 Detect my nearest location';
-  btn.style.cssText = `
-    display:block; width:100%; margin-bottom:8px;
-    background:transparent; border:1px dashed #444; border-radius:4px;
-    color:#888; font-family:inherit; font-size:0.82rem;
-    padding:10px; cursor:pointer; text-align:center;
-    transition:border-color 180ms, color 180ms;
-  `;
-  btn.addEventListener('mouseenter', () => { btn.style.borderColor = '#C5100F'; btn.style.color = '#eee'; });
-  btn.addEventListener('mouseleave', () => { btn.style.borderColor = '#444';    btn.style.color = '#888'; });
+  btn.className = 'geo-btn';
+  btn.textContent = 'Detect my nearest location';
+  btn.setAttribute('aria-label', 'Detect my nearest Wing Snob location');
 
   btn.addEventListener('click', () => {
     btn.textContent = 'Detecting…';
@@ -347,7 +372,7 @@ function injectGeoButton(select) {
         btn.remove();
       },
       () => {
-        btn.textContent = '📍 Could not detect — select manually';
+        btn.textContent = 'Could not detect — select manually';
         btn.disabled = false;
       },
       { timeout: 8000 }

@@ -888,6 +888,63 @@ section { width: 100%; }
   border: 0;
 }
 
+/* ── NAV SCROLL STATE ────────────────────────────────────── */
+.nav--scrolled {
+  border-bottom-color: rgba(197, 16, 15, 0.3);
+}
+
+/* ── GEO DETECT BUTTON ───────────────────────────────────── */
+.geo-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.82rem;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 180ms, color 180ms;
+}
+.geo-btn:hover,
+.geo-btn:focus-visible {
+  border-color: var(--red);
+  color: var(--text);
+}
+
+/* ── FORM LABEL OPTIONAL HINT ────────────────────────────── */
+.form-label__optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+/* ── FORM GLOBAL ERROR ───────────────────────────────────── */
+#form-global-error {
+  display: none;
+  color: var(--red-bright);
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+/* ── LEGAL FINE PRINT ────────────────────────────────────── */
+.form-submit-note--legal {
+  margin-top: 8px;
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
+/* ── HOW IT WORKS CTA ────────────────────────────────────── */
+.how__cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
 /* ── REDUCED MOTION ──────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -426,7 +426,7 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="field-phone">Phone <em style="font-weight:400;text-transform:none;letter-spacing:0;font-style:normal;color:#555;">(optional)</em></label>
+                <label class="form-label" for="field-phone">Phone <em class="form-label__optional">(optional)</em></label>
                 <input
                   class="form-input"
                   type="tel"
@@ -449,18 +449,7 @@
                   aria-required="true"
                 >
                   <option value="" disabled selected>Detecting your nearest location…</option>
-                  <option value="Edmonton - Brewery District">Edmonton – Brewery District</option>
-                  <option value="Edmonton - Eversquare">Edmonton – Eversquare</option>
-                  <option value="Edmonton - Northgate">Edmonton – Northgate</option>
-                  <option value="Edmonton - Meadows">Edmonton – Meadows</option>
-                  <option value="Edmonton - Manning">Edmonton – Manning</option>
-                  <option value="Edmonton - Albany">Edmonton – Albany</option>
-                  <option value="Edmonton - Rabbit Hill">Edmonton – Rabbit Hill</option>
-                  <option value="Edmonton - Hamptons">Edmonton – Hamptons</option>
-                  <option value="Sherwood Park">Sherwood Park</option>
-                  <option value="Leduc">Leduc</option>
-                  <option value="Calgary - Legacy">Calgary – Legacy</option>
-                  <option value="Grande Prairie">Grande Prairie</option>
+                  <!-- Options populated from LOCATIONS array in js/main.js — single source of truth -->
                 </select>
                 <div class="form-error" role="alert" aria-live="polite"></div>
               </div>
@@ -473,7 +462,7 @@
               <input type="hidden" id="field-utm-campaign" name="utm_campaign">
               <input type="hidden" id="field-utm-content"  name="utm_content">
 
-              <div id="form-global-error" role="alert" aria-live="assertive" style="display:none;color:#FF6B6B;font-size:0.8rem;margin-bottom:12px;"></div>
+              <div id="form-global-error" role="alert" aria-live="assertive"></div>
 
               <button type="submit" id="signup-btn" class="btn btn-primary btn-full btn-lg">
                 <span class="btn-text">
@@ -502,7 +491,7 @@
 
           </form>
           <p class="form-submit-note">No spam. Game-day deals, free wings, and your shot at playoff tickets.</p>
-          <p class="form-submit-note" style="margin-top:8px;font-size:0.65rem;line-height:1.5;">Contest open to AB residents 18+. One entry per person. 10 pairs of tickets drawn at random before the first home 2026 Oilers playoff game. No purchase necessary. Winners notified by email and announced @wingsnobca. Full rules available at wingsnob.ca.</p>
+          <p class="form-submit-note form-submit-note--legal">Contest open to AB residents 18+. One entry per person. 10 pairs of tickets drawn at random before the first home 2026 Oilers playoff game. No purchase necessary. Winners notified by email and announced @wingsnobca. Full rules available at wingsnob.ca.</p>
         </div>
       </div>
 
@@ -543,7 +532,7 @@
       </div>
 
     </div>
-    <div style="text-align:center;margin-top:40px;">
+    <div class="how__cta">
       <a class="btn btn-primary btn-lg" href="https://order.wingsnob.ca" target="_blank" rel="noopener noreferrer" data-order="how-it-works">Order Wings Tonight</a>
     </div>
   </div>
@@ -836,6 +825,8 @@
   </div>
 </section>
 
+</main><!-- /#main-content -->
+
 <!-- ═══════════════════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════════════════ -->
@@ -871,8 +862,6 @@
       </p>
     </div>
   </div>
-</main><!-- /#main-content -->
-
 </footer>
 
 <!-- ── MOBILE STICKY CTA BAR ─────────────────────────────── -->
