@@ -492,7 +492,9 @@ section { width: 100%; }
   display: none;
 }
 .btn.is-loading .btn-text { display: none; }
-.btn.is-loading .btn-loading { display: inline; }
+.btn.is-loading .btn-loading { display: inline-flex; align-items: center; gap: 8px; }
+.btn-loading-text { font-size: 1rem; font-weight: 600; letter-spacing: 0.01em; }
+.btn-lg .spinner { width: 20px; height: 20px; border-width: 2.5px; }
 
 /* Confirmation */
 .form-confirmation {

@@ -166,11 +166,15 @@ function initForm() {
         debugLog('webhook', 'sending...');
         let res;
         try {
-          res = await fetch(GHL_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(payload).toString(),
-          });
+          const minDelay = new Promise(r => setTimeout(r, 600));
+          [res] = await Promise.all([
+            fetch(GHL_WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(payload).toString(),
+            }),
+            minDelay,
+          ]);
         } catch (fetchErr) {
           debugLog('fetch error', fetchErr.message, true);
           throw new Error('network');
