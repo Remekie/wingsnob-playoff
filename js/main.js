@@ -13,6 +13,7 @@ const LS_KEY          = 'wingsnob_playoff_signup';
 
 // ── URL PARAMS ────────────────────────────────────────────
 const params = new URLSearchParams(window.location.search);
+const DEBUG_MODE    = params.get('debug') === '1';
 const urlSource     = params.get('source')       || 'direct';
 const utmSource     = params.get('utm_source')   || '';
 const utmMedium     = params.get('utm_medium')   || '';
@@ -20,6 +21,29 @@ const utmCampaign   = params.get('utm_campaign') || '';
 const utmContent    = params.get('utm_content')  || '';
 
 // GA4 loaded via static <script> tag in <head> (required for Search Console verification)
+
+// ── DEBUG OVERLAY (only active when ?debug=1) ─────────────
+function debugLog(label, value, isError = false) {
+  if (!DEBUG_MODE) return;
+  let panel = document.getElementById('debug-panel');
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.id = 'debug-panel';
+    panel.style.cssText = `
+      position:fixed;bottom:0;left:0;right:0;z-index:9999;
+      background:#000;color:#0f0;font-family:monospace;font-size:12px;
+      padding:12px;max-height:50vh;overflow-y:auto;
+      border-top:2px solid #0f0;
+    `;
+    document.body.appendChild(panel);
+  }
+  const line = document.createElement('div');
+  line.style.color = isError ? '#f66' : '#0f0';
+  line.style.marginBottom = '4px';
+  line.textContent = `[${new Date().toISOString().slice(11,19)}] ${label}: ${typeof value === 'object' ? JSON.stringify(value) : value}`;
+  panel.appendChild(line);
+  panel.scrollTop = panel.scrollHeight;
+}
 
 function ga4(event, data = {}) {
   if (typeof window.gtag === 'function') {
@@ -135,9 +159,11 @@ function initForm() {
     btn.disabled = true;
 
     const payload = buildPayload(form);
+    debugLog('payload', payload);
 
     try {
       if (GHL_WEBHOOK_URL !== 'YOUR_GHL_WEBHOOK_URL') {
+        debugLog('webhook', 'sending...');
         let res;
         try {
           res = await fetch(GHL_WEBHOOK_URL, {
@@ -145,14 +171,20 @@ function initForm() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
           });
-        } catch {
+        } catch (fetchErr) {
+          debugLog('fetch error', fetchErr.message, true);
           throw new Error('network');
         }
+        const responseText = await res.text();
+        debugLog('status', res.status, !res.ok);
+        debugLog('response', responseText, !res.ok);
         if (!res.ok) {
           const err = new Error(`GHL webhook failed: ${res.status}`);
           err.status = res.status;
           throw err;
         }
+      } else {
+        debugLog('webhook', 'URL not configured — skipping', true);
       }
 
       // Save to localStorage
@@ -165,9 +197,11 @@ function initForm() {
         has_phone: !!payload.phone,
       });
 
+      debugLog('result', 'SUCCESS — showing confirmation');
       showConfirmation(payload.first_name);
     } catch (err) {
       console.error('Submission error:', err);
+      debugLog('caught error', err.message, true);
       if (err.message === 'network') {
         showInlineError('Connection failed — check your internet and try again.');
       } else if (err.status >= 400 && err.status < 500) {
